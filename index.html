@@ -1,12 +1,796 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+        integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700&family=Comfortaa:wght@300&family=Montserrat:wght@300;400;600&family=Work+Sans:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+        integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <title>Portfolio | Darius</title>
+    <style>
+        body {
+            background-color: #24282c !important;
+            color: #fff;
+            height: 100%;
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        div.footer {
+            margin-top: 30px;
+            padding: 120px 0 30px 0;
+            background-color: #343a40 !important;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-desc {
+            padding: 20px;
+        }
+
+        .theme-font-color,
+        div.theme-font-color {
+            color: #43ff75 !important;
+            text-decoration: none;
+            margin: 0 !important;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        div.segment {
+            margin-top: 0 !important;
+        }
+
+        div.card {
+            padding: 10px 0 !important;
+        }
+
+        .theme-bg-color {
+            background-color: #24282c !important;
+        }
+
+        .main-custom-body {
+            background-color: #343a40 !important;
+            height: 26vw;
+        }
+
+        .custom-h1 {
+            font-size: 5vw;
+            text-shadow: 4px 4px 4px #24282c;
+        }
+
+        .custom-h2 {
+            font-size: 2vw;
+            padding-left: 0.7vw;
+            text-shadow: 5px 5px 7px #24282c;
+        }
+
+        .custom-gold-color {
+            color: FFD700 !important;
+        }
+
+        .header,
+        .custom-color {
+            color: #fff !important;
+            text-decoration: none;
+            margin: 0 !important;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .custom-margin {
+            margin: 25px 0 !important;
+        }
+
+        .custom-f-color,
+        div.custom-f-color {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 !important;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        div.f-color {
+            color: #fff !important;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .f-theme-color {
+            color: #24282c !important;
+        }
+
+        .f-black-color {
+            color: #000 !important;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .custom-main-text {
+            position: absolute;
+            top: 5vw;
+            right: 3vw;
+            left: 20vw;
+            width: 60vw;
+            height: 3vw;
+        }
+
+        .custom-main-img {
+            position: absolute;
+            left: 55vw;
+            width: 35vw;
+            height: 25vw;
+            /* background-color: #43ff75; */
+        }
+
+        .img-main {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Typewrite */
+        .typewrite {
+            color: #43ff75;
+        }
+
+        .typewrite:hover {
+            color: #1dc54a;
+        }
+
+        .head-title:hover {
+            color: #1dc54a !important;
+            transform: rotate(3deg);
+            transition: 0.05s;
+        }
+
+        .clickable-links:hover {
+            color: #1dc54a !important;
+            scale: 1.3;
+            transition: 0.1s;
+        }
+
+        /* Divider styles */
+        .custom-shape-divider-bottom-1688368995 {
+            position: absolute;
+            bottom: -2;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1688368995 svg {
+            position: relative;
+            display: block;
+            width: calc(108% + 1.3px);
+            height: 9vw;
+            min-height: 20px;
+        }
+
+        .custom-shape-divider-bottom-1688368995 .shape-fill {
+            fill: #24282c;
+        }
+
+        .custom-shape-divider-top-1689056458 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .custom-shape-divider-top-1689056458 svg {
+            position: relative;
+            display: block;
+            width: calc(144% + 1.3px);
+            height: 149px;
+        }
+
+        .custom-shape-divider-top-1689056458 .shape-fill {
+            fill: #24282C;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
 </head>
+
 <body>
-    I am currently working with this :)
+    <!-- particles.js container -->
+    <div class="ui vertical segment main-custom-body">
+        <div id="particles-js"> <!-- Particles -->
+            <div class="custom-main-text">
+                <h1 class="custom-h1 custom-f-color custom-main-h1" id="name-header">
+                    <span>_</span><span class="theme-font-color">d</span>arius
+                    <span class="theme-font-color">c</span>hua
+                </h1>
+                <h3 class="custom-h2 custom-f-color"> Hello, I am a
+                    <a href="#" class="typewrite" data-period="2000"
+                        data-type='["web developer.", "software specialist.", "front-end developer.", "back-end developer.", "full-stack developer."]'>
+                        <span class="wrap"></span>
+                    </a>
+                </h3>
+            </div>
+            <!-- <div class="custom-main-img"> -->
+            <!-- <img class="img-main" src="dc.png" alt="BG"> -->
+            <!-- <div class="ui small circular rotate reveal image">
+                    <img src="dc.png" class="visible content">
+                    <img src="dc.png" class="hidden content">
+                </div> -->
+            <!-- </div> -->
+            <div class="custom-shape-divider-bottom-1688368995">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                        opacity=".25" class="shape-fill"></path>
+                    <path
+                        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                        opacity=".5" class="shape-fill"></path>
+                    <path
+                        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="ui container">
+        <div class="row"></div>
+        <div class="ui three column doubling stackable grid">
+            <div class="computer only column center align main-col"> <!-- Left side Computer only  -->
+                <h1 class="ui center aligned horizontal divider header head-title">S K I L L S</h1>
+                <div class="ui segment theme-bg-color">
+                    <div class="ui middle aligned animated list">
+                        <h4 class="theme-font-color">Core Building Blocks</h4>
+                        <div class="item" title="HTML">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+                            <div class="content">
+                                <div class="header">HTML</div>
+                            </div>
+                        </div>
+                        <div class="item" title="Cascading Style Sheet">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+                            <div class="content">
+                                <div class="header">CSS</div>
+                            </div>
+                        </div>
+                        <div class="item" title="JavaScript">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+                            <div class="content">
+                                <div class="header">JavaScript</div>
+                            </div>
+                        </div>
+                        <h4 class="theme-font-color">Programming</h4>
+                        <div class="item" title="PHP">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
+                            <div class="content">
+                                <div class="header">PHP</div>
+                            </div>
+                        </div>
+                        <h4 class="theme-font-color">MVC Framework</h4>
+                        <div class="item" title="CodeIgniter">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain-wordmark.svg">
+                            <div class="content">
+                                <div class="header">CodeIgniter</div>
+                            </div>
+                        </div>
+                        <h4 class="theme-font-color">Database</h4>
+                        <div class="item" title="MySQL">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+                            <div class="content">
+                                <div class="header">MySQL</div>
+                            </div>
+                        </div>
+                        <h4 class="theme-font-color">Web Libraries</h4>
+                        <div class="item" title="Bootstrap">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg">
+                            <div class="content">
+                                <div class="header">Bootstrap</div>
+                            </div>
+                        </div>
+                        <div class="item" title="jQuery">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg">
+                            <div class="content">
+                                <div class="header">jQuery</div>
+                            </div>
+                        </div>
+                        <div class="item" title="LESS">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/less/less-plain-wordmark.svg">
+                            <div class="content">
+                                <div class="header">LESS</div>
+                            </div>
+                        </div>
+                        <h4 class="theme-font-color">Cloud Services</h4>
+                        <div class="item" title="Amazon Web Services">
+                            <img class="ui avatar image"
+                                src="data:image/png;base64,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">
+                            <div class="content">
+                                <div class="header">AWS</div>
+                            </div>
+                        </div>
+                        <div class="item" title="GitHub">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+                            <div class="content">
+                                <div class="header">GitHub</div>
+                            </div>
+                        </div>
+                        <div class="item" title="Jira">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg">
+                            <div class="content">
+                                <div class="header">Jira</div>
+                            </div>
+                        </div>
+                        <h4 class="theme-font-color">Design</h4>
+                        <div class="item" title="Adobe Photoshop">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg">
+                            <div class="content">
+                                <div class="header">Photoshop</div>
+                            </div>
+                        </div>
+                        <div class="item" title="Adobe Illustrator">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg">
+                            <div class="content">
+                                <div class="header">Illustrator</div>
+                            </div>
+                        </div>
+                        <div class="item" title="Adobe XD">
+                            <img class="ui avatar image"
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg">
+                            <div class="content">
+                                <div class="header">Xd</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column main-col"> <!-- Center -->
+                <div class="ui center aligned header">
+                    <div class="ui relaxed horizontal list custom-margin">
+                        <a class="item" href="https://www.facebook.com/audris.xiv/"
+                            title="Checkout my Facebook account"><i
+                                class="ui big facebook icon custom-color clickable-links"></i></a>
+                        <a class="item" href="https://github.com/darius-xiv" title="Checkout my GitHub account"><i
+                                class="ui big github icon custom-color clickable-links"></i></a>
+                        <a class="item" href="https://linkedin.com/in/darius-chua-xiv"
+                            title="Checkout my LinkedIn account"><i
+                                class="ui big linkedin icon custom-color clickable-links"></i></a>
+                    </div>
+                </div>
+                <h4 class="ui center aligned header">
+                    chua.darius.14@gmail.com
+                    <div class="sub header">+639 05 125 8978</div>
+                </h4>
+                <div class="ui center aligned horizontal divider custom-margin">
+                    <a class="item"
+                        href="https://drive.google.com/file/d/1rR9IHrr53nA7q7VICkAWG7YHyH1w6_To/view?usp=sharing"
+                        title="Download my CV"><i
+                            class="ui big cloud download icon custom-color clickable-links"></i></a>
+                </div>
+                <h5 class="ui center aligned header custom-margin">
+                    An enthusiast of software
+                    related projects with
+                    specialization on web development.
+                </h5>
+                <h1 class="ui center aligned horizontal divider header custom-margin head-title">P R O J E C T S</h1>
+                <div class="ui card centered card">
+                    <div class="ui slide masked reveal image">
+                        <img src="cahel_1.png" class="visible content">
+                        <img src="cahel_2.png" class="hidden content">
+                    </div>
+                    <div class="content">
+                        <a class="ui medium header f-black-color">Accounting System</a>
+                        <div class="meta">
+                            <span class="date">v.2023</span>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="right floated author">
+                            <a class="ui purple label">
+                                PHP
+                            </a>
+                            <a class="ui red label">
+                                CodeIgniter3
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui card centered card">
+                    <div class="ui slide masked reveal image">
+                        <img src="els_2.png" class="visible content">
+                        <img src="els_3.png" class="hidden content">
+                    </div>
+                    <div class="content">
+                        <a class="ui medium header f-black-color">Log System</a>
+                        <div class="meta">
+                            <span class="date">v.2021</span>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="right floated author">
+                            <a class="ui purple image label">
+                                PHP
+                            </a>
+                            <a class="ui red image label">
+                                CodeIgniter3
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui card centered card">
+                    <div class="ui slide masked reveal image">
+                        <img src="canossa_1.png" class="visible content">
+                        <img src="canossa_2.png" class="hidden content">
+                    </div>
+                    <div class="content">
+                        <a class="ui medium header f-black-color">Scholarship System</a>
+                        <div class="meta">
+                            <span class="date">v.2021</span>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="right floated author">
+                            <a class="ui purple label">
+                                PHP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile only column center align main-col">
+                <h1 class="ui center aligned horizontal divider header head-title">S K I L L S</h1>
+                <div class="ui container center aligned small horizontal list ">
+                    <div class="item" title="HTML">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+                    </div>
+                    <div class="item" title="Cascading Style Sheet">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+                    </div>
+                    <div class="item" title="JavaScript">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+                    </div>
+                    <div class="item" title="PHP">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
+                    </div>
+                    <div class="item" title="CodeIgniter">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain-wordmark.svg">
+                    </div>
+                    <div class="item" title="MySQL">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+                    </div>
+                    <div class="item" title="Bootstrap">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg">
+                    </div>
+                    <div class="item" title="jQuery">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg">
+                    </div>
+                    <div class="item" title="LESS">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/less/less-plain-wordmark.svg">
+                    </div>
+                    <div class="item" title="Amazon Web Services">
+                        <img class="ui avatar image"
+                            src="data:image/png;base64,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">
+                    </div>
+                    <div class="item" title="GitHub">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+                    </div>
+                    <div class="item" title="Jira">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg">
+                    </div>
+                    <div class="item" title="Adobe Photoshop">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg">
+                    </div>
+                    <div class="item" title="Adobe Illustrator">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg">
+                    </div>
+                    <div class="item" title="Adobe XD">
+                        <img class="ui avatar image"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="column main-col"> <!-- Right side -->
+                <div class="row"></div>
+                <h1 class="ui center aligned horizontal divider header head-title">E X P E R I E N C E</h1>
+                <div class="ui raised centered card theme-bg-color">
+                    <div class="content custom-f-color">
+                        <div class="header theme-font-color">Web Developer</div>
+                        <div class="meta f-color">Lloyd's Financing Corporation<br><small>Makati City,
+                                Philippines</small><br><small>August 2021 - Present</small></div>
+                        <div class="description f-color">
+                            <hr class="f-color">
+                            Employed as the core and lead developer who innovate and implement the latest
+                            methodologies to the company's existing system up to new ones
+
+                        </div>
+                    </div>
+                    <div class="extra content f-color">
+                        <div class="ui relaxed divided list">
+                            <div class="item">
+                                <i class="trophy middle aligned icon custom-gold-color"></i>
+                                <div class="content">
+                                    <a class="header">Achievements</a>
+                                    <div class="description f-color">Completion of the company's Accounting System from
+                                        scratch
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <i class="certificate middle aligned icon custom-gold-color"></i>
+                                <div class="content">
+                                    <a class="header">Recognition</a>
+                                    <div class="description f-color">Leadership Award of the Year (2022)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui raised centered card theme-bg-color">
+                    <div class="content custom-f-color">
+                        <div class="header theme-font-color">Web Developer Trainee</div>
+                        <div class="meta f-color">Village88<br><small>Pampanga, Philippines</small><br><small>March 2021
+                                - May 2021</small></div>
+                        <div class="description f-color">
+                            <hr>
+                            <p>Practices proper coding conventions and deepen understanding to building blocks and
+                                MVC frameworks
+                            </p>
+                        </div>
+                    </div>
+                    <div class="extra content f-color">
+                        <div class="ui relaxed divided list">
+                            <div class="item">
+                                <i class="trophy middle aligned icon custom-gold-color"></i>
+                                <div class="content">
+                                    <a class="header">Certifications</a>
+                                    <div class="description f-color"> HTML & CSS Track Exam <br> PHP Track Exam
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="ui center aligned horizontal divider header head-title">E D U C A T I O N</h1>
+                <div class="ui raised centered card theme-bg-color">
+                    <div class="content custom-f-color">
+                        <div class="header theme-font-color">BS Information Technology</div>
+                        <div class="meta f-color">Cavite State University<br><small>Silang, Cavite,
+                                Philippines</small><br><small>2017 - 2022</small></div>
+                    </div>
+                    <div class="extra content f-color">
+                        <div class="ui relaxed divided list">
+                            <div class="item">
+                                <i class="graduation cap middle aligned icon custom-gold-color"></i>
+                                <div class="content">
+                                    <a class="header">Accomplishment</a>
+                                    <div class="description f-color"> Scholarship web-system
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="ui blue ribbon label">Auxiliaries</a>
+                        <span><small>HackerHero, Udemy</small> </span>
+                    </div>
+
+                </div>
+                <h1 class="ui center aligned horizontal divider header head-title">W O R K S H O P</h1>
+                <div class="ui raised centered card theme-bg-color">
+                    <div class="content custom-f-color">
+                        <div class="header theme-font-color">AWS EUC Workshop (Manila)</div>
+                        <div class="meta f-color">Amazon Web Services<br><small>Taguig, NCR,
+                                Philippines</small><br><small>May 31, 2023 - June 1, 2023</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui footer">
+        <div class="custom-shape-divider-top-1689056458">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                    opacity=".25" class="shape-fill"></path>
+                <path
+                    d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                    opacity=".5" class="shape-fill"></path>
+                <path
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="row  footer-desc">
+            <div class="ui three column grid">
+                <div class="computer only four wide column right aligned f-color">
+                    <div class="ui relaxed horizontal list">
+                        <a class="item" href="https://www.facebook.com/audris.xiv/"
+                            title="Checkout my Facebook account"><i class="ui big facebook icon custom-color"></i></a>
+                        <a class="item" href="https://github.com/darius-xiv" title="Checkout my GitHub account"><i
+                                class="ui big github icon custom-color"></i></a>
+                        <a class="item" href="https://linkedin.com/in/darius-chua-xiv"
+                            title="Checkout my LinkedIn account"><i class="ui big linkedin icon custom-color"></i></a>
+                    </div>
+                </div>
+                <div
+                    class="left floated right aligned tablet only mobile only eight wide column twelve wide column f-color">
+                    <small>Hi, if you've
+                        reach this far, I would like to congratulate you that you already know something about
+                        me.<br>All the information is certified with truth by me. I would really appreciate it if you'll
+                        buy me a coffee! 🙂✨ </small>
+                </div>
+                <div class="left floated right aligned computer only eight wide column f-color"><small>Hi, if you've
+                        reach this far, I would like to congratulate you that you already know something about
+                        me.<br>All the information is certified with truth by me. I would really appreciate it if you'll
+                        buy me a coffee! 🙂✨ </small></div>
+                <div class="four wide column f-color">&copy; Darius Chua | 2023</div>
+
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="dariusxiv" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5"
+    data-position="Right" data-x_margin="18" data-y_margin="18"></script> <!-- Buy me a coffee plugin :) -->
+<script>
+    $(document).ready(function () {
+        $('#name-header').transition('bounce', '2500ms');
+        $('div.main-col').transition('fade up').transition({
+            animation: 'fade up',
+            duration: '2s',
+            onComplete: function () {
+                $('a.item, .big.cloud.download.icon').transition({
+                    animation: 'pulse',
+                    interval: 200,
+                });
+            }
+        });
+
+        particlesJS("particles-js",
+            {
+                "particles": {
+                    "number": {
+                        "value": 71, "density":
+                            { "enable": true, "value_area": 800 }
+                    }, "color": {
+                        "value": "#ffffff"
+                    }, "shape": {
+                        "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 }
+                    }, "opacity": {
+                        "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false }
+                    }, "size": {
+                        "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
+                    }, "line_linked": {
+                        "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1
+                    }, "move": {
+                        "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
+                    }
+                }, "interactivity": {
+                    "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "repulse" }, "resize": true }, "modes": { "grab": { "distance": 133.99274002972194, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 182.71737276780266, "size": 8.120772123013452, "duration": 1.2181158184520178, "opacity": 0.43852169464272633, "speed": 3 }, "repulse": { "distance": 129.93235396821524, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } }
+                }, "retina_detect": true
+            });
+        var count_particles, update;
+
+        var TxtType = function (el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function () {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function () {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function () {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+            document.body.appendChild(css);
+        };
+    });
+</script>
